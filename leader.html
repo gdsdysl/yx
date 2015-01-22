@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	ol{
+		list-style:none;
+		list-style-image:url(images/image/document.gif);
+		margin-top:0px;
+		padding:0px;
+		margin-bottom:0px;
+	}
+	li{
+		margin-left:5px;
+	}
+	#yule1,#yule2,#yule3,#yule4{
+		padding:0px;
+	}
+	a{
+		text-decoration:none;
+		color:#00C;
+	}
+</style>
+<script language="javascript">
+    function test(q,self){
+		var index="yule"+q;
+	
+		var d=document.getElementById(index).style.display;
+			
+		if(d=='none'){
+				document.getElementById(index).style.display='block';
+				self.src='images/image/open.gif';
+		}
+		else
+		{
+		   document.getElementById(index).style.display='none';
+		        self.src='images/image/close.gif';
+		}
+	}
+</script>
+</head>
+
+<body  bgcolor="#000000" text="#FF0000">
+<div id="yule"><img src="images/image/close.gif"  onclick="test(1,this)" />娱乐游戏</div>
+<div id="yule1">
+	<ol>
+    	<li><a href="yx/caiquan/caiquan.html" target="mainFrame">猜拳游戏</a></li>
+        <li><a href="yx/fangkuai/code.htm" target="mainFrame">俄罗斯方块</a></li>
+        <li><a href="yx/lianliankan/index.htm" target="mainFrame">连连看游戏</a></li>
+        <li><a href="yx/pp/pp.html" target="mainFrame">弹球球游戏</a></li>
+    </ol>
+</div>
+<div id="zhili" ><img src="images/image/close.gif" onclick="test(2,this)"/>智力游戏</div>
+<div id="yule2">
+	<ol>
+    	<li><a href="yx\aiqing\code.htm" target="mainFrame">爱情测试</a></li>
+        <li><a href="yx\pingpan\code.htm" target="mainFrame">拼盘游戏</a></li>
+        <li><a href="yx\tuixiangzi\code.htm" target="mainFrame">推箱子游戏</a></li>
+        <li><a href="yx/pp/pp.html" target="mainFrame">弹球球游戏</a></li>
+    </ol>
+</div>
+<div id="fanyin" ><img src="images/image/close.gif" onclick="test(3,this)"/>测试游戏</div>
+<div id="yule3">
+	<ol>
+        <li><a href="yx\biyanli\code.htm" target="mainFrame">比眼力</a></li>
+        <li><a href="yx\shijian\code.htm" target="mainFrame">比动作</a></li>
+        <li><a href="yx\tanchishe.html" target="mainFrame">贪吃蛇游戏</a></li>
+        <li><a href="yx/fanyin/code.htm" target="mainFrame">比灵敏</a></li>
+    </ol>
+</div>
+<div id="other" ><img src="images/image/close.gif" onclick="test(4,this)"/>其他游戏</div>
+<div id="yule4">
+	<ol>
+    	  <li><a href="yx/sudu/code.htm" target="mainFrame">测试反应</a></li>
+          <li><a href="javascript:alert('请开发');">游戏1</a></li>
+          <li><a href="javascript:alert('请开发');">游戏2</a></li>
+          <li><a href="javascript:alert('请开发');">游戏3</a></li>
+    </ol>
+</div>
+
+</body>
+</html>

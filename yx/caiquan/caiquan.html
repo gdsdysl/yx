@@ -1,0 +1,86 @@
+<html>
+		<head>	
+			<title>猜拳</title>
+			<script	language="javascript">
+				//电脑出拳:
+			       function test(){ 
+				      var  a=Math.round(Math.random()*2);
+					document.all.himself.src=a+".jpg";
+				}		 	
+				//我们自己出拳
+				function test1(){
+					var c=document.all.self.value;
+					document.all.doself.src=c+".jpg";
+					
+				}
+				//获得比赛结果
+				function jieguo(){
+		                 //1：  所有的函数都合并为一个
+				 //2： substring()
+				//获得自己出拳时显示图片路径
+				var d=document.all.doself.src;
+				var f=document.all.himself.src;
+				//获取路径中的数字,d.length 得到字符串的长度
+				//alert("刘庭辉".length);
+				//alert(d.length);
+				//substring("开始的位置","结束的位置")
+				//alert("刘廷辉".substring(0,1));
+				//alert(d.substring(d.length-5,d.length-4)); 
+				var a=d.substring(d.length-5,d.length-4);
+				var c=f.substring(f.length-5,f.length-4);
+			if(a==1)
+			  {
+			  if(c==1)
+				
+				document.all.picture.src="03.gif";
+			  if(c==2)
+				document.all.picture.src="02.gif";
+			  if(c==0)
+				document.all.picture.src="01.gif";
+			}
+    			if(a==2)
+			  {
+			  if(c==2)
+				document.all.picture.src="03.gif";
+			  if(c==1)
+				document.all.picture.src="01.gif";
+			  if(c==0)
+				document.all.picture.src="02.gif";
+			}
+			if(a==0)
+			  {
+			  if(c==0)
+				document.all.picture.src="03.gif";
+			  if(c==2)
+				document.all.picture.src="01.gif";
+			  if(c==1)
+				document.all.picture.src="02.gif";
+			}
+				     
+				}	
+			</script>
+		</head>
+		<body bgcolor="black" text="red">	
+			<p align="center">猜拳游戏</p>
+			<hr color="blue" width="70%" size="2"/>
+			<br/>
+                        说明: 自己出拳请输入数字0,1,2; 0代表布,1代表石头,2代表石头<br/>
+			<table border="1" width="70%" height="60%" bordercolor="red" align="center" cellspacing="0">
+			<tr>
+				<td>自己出拳:<input type="text" size="4" name="self" onblur="test1()"/></td>
+				<td>电脑出拳<input type="button" value="出拳" onclick="test()"/></td>
+				<td>比赛结果</td>
+			</tr>
+			<tr>
+			<!--失去焦点的这个事情来调用函数test1()-->
+			<td><img src="0.jpg" width="150" height="250" name="doself"></td>
+			<td><img src="2.jpg" width="150" height="250" name="himself"></td>
+			<td><img src="02.gif" width="150" height="250" name="picture"></td>
+			</tr>
+			<tr>
+			<td colspan="3"><a href="javascript:jieguo()">比赛结果查看</a></td>
+				
+			</tr>
+			</table>
+		</body>
+</html>

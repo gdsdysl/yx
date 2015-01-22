@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>js 游戏 -</title>
+
+<script type="text/javascript">
+	var dx;
+	var dy;
+	var x=1,y=1;
+	var d;
+	var  count = 0;
+	function run(){
+		var div = document.getElementById("ad");
+		dx =parseInt(div.style.left);
+		dy =parseInt(div.style.top);
+		//alert(dx+"  "+ dy);
+		if(dx <=0 || dx >= 300 - 24){
+			x = -x;
+		}
+		if(dy <=0 || dy >= 500-24){
+			y = -y;
+		}
+		dx+=(6*x);
+		dy+=(6*y);
+		div.style.left = dx + "px";
+		div.style.top = dy + "px";
+		
+		//移动完成之后判断  dy 是否大于 lab的y轴
+		var laby = parseInt(document.getElementById("lab").style.top);
+		var labx = parseInt(document.getElementById("lab").style.left);
+		if(dy +parseInt(document.getElementById("ad").style.height)  >= laby){
+		//alert(dy+"   "+laby);
+			
+			//判断 dx 是否在 挡板的范围之内
+			if(dx >= labx && dx <= labx + parseInt(document.getElementById("lab").style.width) - parseInt(document.getElementById("ad").style.width)  )
+			{
+				y = -y;
+				count ++;
+			}
+			else{
+				alert("您已经壮烈牺牲！ 共得分数：" +count);
+				stoppan(document.getElementById("stopbutton"),document.getElementById("startbutton"));
+				return ;
+			}
+		}
+		
+		
+		
+		d=setTimeout("run()",100);
+	}
+	
+	//d=setTimeout("run()",100);
+	function stoppan(stopb,startb){
+		stopb.disabled = true;
+		startb.disabled = false;
+		clearTimeout(d);
+	}
+	function startpan(stopb,startb){
+		
+		// 进行不要的初始化
+		
+		 document.getElementById("ad").style.left = (Math.random() * 300)+"px"; //采用随机数确定 小球的初始位置
+		 document.getElementById("ad").style.top = "1px";
+	
+		d= setTimeout("run()",100);
+		stopb.disabled = false;
+		startb.disabled = true;
+	}
+	
+	function document.onkeydown()
+	{
+		//alert(event.keyCode);
+		
+		var lab = document.getElementById("lab");
+		var labx = parseInt(lab.style.left);
+		//var laby = parseInt(lab.style.top);
+		var pabwidth =parseInt( lab.style.width);
+		//alert(pabwidth);
+   		if ( event.keyCode=='39' ) //->右箭头
+   		{
+    		 if(labx >= 300 -pabwidth ){
+			 	// 已经到最右边
+				return;
+			}
+			labx= labx + 10;
+			lab.style.left = labx + "px";
+			
+   		}
+		if(event.keyCode == '37') //  <- 左箭头
+		{
+			 if(labx <=0 ){
+			 	//已经到了最左边
+				return;	
+			}
+			labx= labx - 10;
+			lab.style.left = labx + "px";
+		}
+		
+	}
+
+
+</script>
+</head>
+<body style="text-align:center; background-color:black">
+<div style="text-align:center">
+	<div  id="pan" style="background:#000000; width:300px; height:500px; position:absolute; top:200x; left:300px; border:solid 5px red;">
+	<div id="ad"  style="position:absolute;width:24px; top:1px; left:1px; height:24px; ">
+		<img src="00.gif" width="24" height="24" />
+	</div>
+		<img id="lab" src="bb.jpg"  style="left:1px; top:475px; position:absolute; width:60px;" />
+	</div>
+    <br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<input name="stopbutton" id="stopbutton" disabled="disabled" type="button" value="stop" onclick="stoppan(this,startbutton)"  />&nbsp;&nbsp; <input type="button" value="start" id="startbutton" name="startbutton"
+ onclick="startpan(stopbutton ,this)" />
+</div>
+</body>
+</html>
